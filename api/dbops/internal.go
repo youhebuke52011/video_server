@@ -4,10 +4,10 @@ import (
 	"git.umlife.net/gateway/openstat/log"
 	"strconv"
 	"sync"
-	"w3u72y/video_server_1_5/api/defs"
+	"video_server/api/defs"
 )
 
-func InsertSession(session_id string, ttl string, login_name string) error {
+func InsertSession(session_id string, ttl int64, login_name string) error {
 	stmt, err := dbConn.Prepare("INSERT into sessions(session_id,TTL,login_name) " +
 		"VALUES (?,?,?)")
 	if err != nil {
